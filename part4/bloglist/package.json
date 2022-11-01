@@ -1,0 +1,30 @@
+{
+  "name": "bloglist",
+  "version": "1.0.0",
+  "description": "Bloglist application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "cross-env NODE_ENV=test jest --verbose --forceExit"
+  },
+  "author": "ihrow",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.7.0",
+    "supertest": "^6.3.1"
+  },
+  "devDependencies": {
+    "jest": "^29.2.2",
+    "nodemon": "^2.0.20"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
