@@ -1,0 +1,40 @@
+.container {
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 1em;
+}
+
+.login-input {
+  margin: 0.5em 0;
+  width: 121%;
+}
+
+.password-input {
+  margin-bottom: 1.5em;
+}
+
+.active {
+    margin-top: 0.1em;
+    background-color: #300313;
+    border-radius: 3em;
+    color: #f41d67;
+}
+
+.active,
+.inactive {
+  margin-top: 0.2em;
+  padding-top: 0.4em;
+}
+
+.new-blog-input {
+    margin: 0.25em 0;
+}
+
+.delete-blog {
+  margin-left: 0.5em;
+}
+
+.login-form {
+  max-width: 400px;
+}
+

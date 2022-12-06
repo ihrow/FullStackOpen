@@ -36,7 +36,10 @@ blogsRouter.post('/', userExtractor, async (request, response) => {
 blogsRouter.delete('/:id', userExtractor, async (request, response) => {
     const decodedToken = jwt.verify(request.token, process.env.JWT_KEY)
     const blog = await Blog.findById(request.params.id)
+    const user = request.user
     if (blog.user.toString() === decodedToken.id.toString()) {
+        user.blogs = user.blogs.filter(b => b.toString() !== request.params.id.toString())
+        await user.save()
         await Blog.findByIdAndRemove(request.params.id)
         response.status(204).end()
     } else {
@@ -56,6 +59,14 @@ blogsRouter.put('/:id', async (request, response) => {
     }
 
     const updatedBlog = await Blog.findByIdAndUpdate(request.params.id, blog, { new: true })
+    response.json(updatedBlog)
+})
+
+blogsRouter.post('/:id/comments', async (request, response) => {
+    const blog = await Blog.findById(request.params.id)
+    const comment = request.body.comment
+    blog.comments = blog.comments.concat(comment)
+    const updatedBlog = await blog.save()
     response.json(updatedBlog)
 })
 
