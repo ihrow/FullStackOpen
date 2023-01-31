@@ -4,13 +4,11 @@ const Author = require('./models/Author')
 const User = require('./models/User')
 const mongoose = require('mongoose')
 const jwt = require('jsonwebtoken')
+require("dotenv").config();
 
-const JWT_SECRET = 'SECRET_KEY'
+const JWT_SECRET = process.env.JWT_SECRET
 
-const MONGODB_URI =
-  'mongodb+srv://ihrow:rxFDnVnsgXAzHqAj@cluster0.zjikzlv.mongodb.net/library?retryWrites=true&w=majority'
-
-console.log('connecting to', MONGODB_URI)
+const MONGODB_URI = process.env.MONGODB_URI
 
 mongoose
   .connect(MONGODB_URI)
