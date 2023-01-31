@@ -29,19 +29,19 @@ const calculateExercises = (daily_exercises: Array<number>, target: number): Res
         ratingDescription,
         target,
         average
-    }
-}
+    };
+};
 
 
-const parseExerciseArguments = (args: Array<String>): ExerciseValues => {
+const parseExerciseArguments = (args: Array<string>): ExerciseValues => {
     if (args.length < 4) throw new Error("Not enough args");
     if (isNaN(Number(args[2]))) throw new Error("Provided values are not numbers");
     if (isNaN(Number(process.argv[2])) || isNaN(Number(process.argv[3]))) throw new Error("Provided values are not numbers");
     return {
         daily_exercises: process.argv.slice(3).map(Number),
         target: Number(process.argv[2])
-    }
-}
+    };
+};
 
 try {
     const { daily_exercises, target } = parseExerciseArguments(process.argv);
@@ -49,7 +49,9 @@ try {
 } catch (error: unknown) {
     let errorMessage = 'Something Bad Happened';
     if (error instanceof Error) {
-        errorMessage += `Error: ${error.message}`
+        errorMessage += `Error: ${error.message}`;
     }
-    console.log(errorMessage)
+    console.log(errorMessage);
 }
+
+export { calculateExercises as exercisesCalculator };

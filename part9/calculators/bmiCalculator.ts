@@ -4,14 +4,14 @@ const calculateBmi = (height: number, weigth: number): string => {
     if (bmi < 25) return 'Normal (healthy weight)';
     if (bmi < 30) return 'Overweight (unhealthy weight)';
     return 'Obese (unhealthy weight)';
-}
+};
 
 interface Values {
     height: number;
     weight: number;
 }
 
-const parseArguments = (args: Array<String>): Values => {
+const parseArguments = (args: Array<string>): Values => {
     if (args.length < 4) throw new Error("Not enough args");
     if (args.length > 4) throw new Error("Too many args");
 
@@ -19,8 +19,8 @@ const parseArguments = (args: Array<String>): Values => {
     return {
         height: Number(process.argv[2]),
         weight: Number(process.argv[3])
-    }
-}
+    };
+};
 
 try {
     const { height, weight } = parseArguments(process.argv);
@@ -28,9 +28,9 @@ try {
 } catch (error: unknown) {
     let errorMessage = 'Something Bad Happened';
     if (error instanceof Error) {
-        errorMessage += `Error: ${error.message}`
+        errorMessage += `Error: ${error.message}`;
     }
-    console.log(errorMessage)
+    console.log(errorMessage);
 }
 
-export { calculateBmi }
+export { calculateBmi };
